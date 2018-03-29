@@ -130,7 +130,7 @@ apt-get -y install linux-firmware-nonfree firmware-b43-installer b43-fwcutter
 }
 function install_14_04_programs {
 # Auto-accept the MS Core Fonts EULA
-echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
 
 # Add Pepper Flash Player support for Chromium
 # Note that this temporarily downloads Chrome, and the plugin uses plugin APIs not provided in Firefox
