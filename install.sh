@@ -134,11 +134,12 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 
 # Add Pepper Flash Player support for Chromium
 # Note that this temporarily downloads Chrome, and the plugin uses plugin APIs not provided in Firefox
-if [ $(lsb_release -rs) = '14.04' ]; then
+if [ "$(lsb_release -rs)" = '14.04' ]; then
 echo "* Customizing Trusty packages"
 apt-get -y install pepperflashplugin-nonfree &&
 update-pepperflashplugin-nonfree --install
  apt-get -y install fonts-mgopen
+ fi
 }
 function install_kubuntu_programs {
 echo "* Customizing Trusty-Kubuntu packages."
@@ -176,7 +177,7 @@ xfconf-query -c xfce4-keyboard-shortcuts -p /commands/default/XF86Eject -n -t st
 function install_mint_programs {
 mintupdate-tool upgrade -r -k -s -y -l12345 --install-recommends
 # Volman controls autoplay settings for xfce
-if [ $(dpkg-query -W -f='${Status}' thunar-volman 2>/dev/null | grep -c "ok installed") -eq 1 ]; then
+if [ "$(dpkg -s thunar-volman | grep "Status: install ok installed")" == "Status: install ok installed" ]; then
 echo "Setting up autoplay for linux mint"
 xfconf-query -c thunar-volman -p /autoplay-audio-cds/command -s "/usr/bin/vlc cdda://%d"
 xfconf-query -c thunar-volman -p /autoplay-audio-cds/enabled -s true
@@ -189,7 +190,7 @@ function remove_useless_programs {
 apt-get -y remove amarok
 }
 function apple_hardware {
-MANUFACTURER=`dmidecode -s system-manufacturer`
+MANUFACTURER="$(dmidecode -s system-manufacturer)"
 if [ "$MANUFACTURER" = "Apple Inc." ]; then
     echo "You are using an $MANUFACTURER."
 
