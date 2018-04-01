@@ -253,6 +253,7 @@ if [ "$(uname)" == "Linux" ] && [ "$(command -v apt-get)" == "/usr/bin/apt-get" 
 	then echo "You're running a version of Linux that incorporates apt-get.";
 		modify_sources_list
 		apt-get -y update && apt-get -y dist-upgrade
+		dpkg --get-selections >before.txt
 		install_general_programs
 		remove_useless_programs
 		add_webcam
@@ -280,6 +281,9 @@ if [ "$(uname)" == "Linux" ] && [ "$(command -v apt-get)" == "/usr/bin/apt-get" 
 			install_mint_programs
 		fi
 	fi
+	dpkg --get-selections >after.txt
+	diff -y before.txt after.txt >comparison.txt
+	rm before.txt after.txt
 	end_install_script
 else
 	echo "This script requires a Linux operating system with apt-get to work."
