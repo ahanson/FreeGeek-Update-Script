@@ -252,7 +252,7 @@ echo "################################"
 if [ "$(uname)" == "Linux" ] && [ "$(command -v apt-get)" == "/usr/bin/apt-get" ]; 
 	then echo "You're running a version of Linux that incorporates apt-get.";
 		modify_sources_list
-		apt-get -y update && 
+		apt-get -y update && apt-get -y dist-upgrade
 		install_general_programs
 		remove_useless_programs
 		add_webcam
