@@ -94,27 +94,26 @@ fi
 	}
 function install_general_programs {
 GENERAL_PROGRAMS=(
-'libreoffice' # Office Suite
-'ubuntu-restricted-extras' #codecs
-'non-free-codecs' #more codecs
-'libdvdcss2' #DVD Playback
-'gimp' #Image Editing Softwarwe
-'krita' #Vector graphics program
-'inkscape' #Vector Graphics Program
-'vlc' #Multi-format media player
-'mplayer' #Movie player
-'totem-mozilla' #media playback extension for Firefox.
-'gcj-jre' #Java
+'b43-fwcutter' #broadcom wireless drivers 
 'ca-certificates' #List of CA certificates (for safer browsing)
-'chromium-browser' # open-source web browser
-'hardinfo' # system information
-'inxi' # system information
 'cdrdao' #CD recording software
+'chromium-browser' # open-source web browser
+'firmware-b43-installer' #broadcom wireless drivers 
+'gcj-jre' #Java
+'gimp' #Image Editing Software
+'hardinfo' # system information
+'inkscape' #Vector Graphics Program
+'krita' #Vector graphics program
 'language-pack-es' #Spanish language support
 'language-pack-gnome-es' #Spanish language support
 'linux-firmware-nonfree' #TV capture card drivers.
-'firmware-b43-installer' #broadcom wireless drivers 
-'b43-fwcutter' #broadcom wireless drivers 
+'libreoffice' # Office Suite
+'libdvdcss2' #DVD Playback
+'mplayer' #Movie player
+'non-free-codecs' #more codecs
+'totem-mozilla' #media playback extension for Firefox.
+'ubuntu-restricted-extras' #codecs
+'vlc' #Multi-format media player
 )
 for program in ${GENERAL_PROGRAMS[*]};
 do
